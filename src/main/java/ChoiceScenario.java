@@ -1,30 +1,29 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class ChoiceScenario {
-    public static String tab;
-    static choixScenario s;
+    public static Scenario tab;
+    private static ArrayList<Scenario> scenarios = ScenarioCreator.create();
+
     //fonction qui permet de choisir le scénario
     public static void ChoiceScenario() {
         int i = 0;
-        int j = 1;
         int length;
         //affiche tout les scénarios
         System.out.println("You chose the scenario mode.\n");
         System.out.println("Now choose a scenario:");
-        //Initialise le tableau list avec tout les scénario possible
-        s.Initialisation();
-        //récupère la taille du tableau
-        length = s.GetLength();
-        //affiche tout les scénario
-        for (int k = 0; k < length && s.list[k] != null;k++){
-            System.out.println(j+" for "+s.list[k]);
-            j++;
+        //affiche la liste des scénario
+        for(int index = 1; index < scenarios.size(); index++){
+            System.out.println(index+" for "+scenarios.get(index).getTitle());
         }
         //récupère la valeur que le joueur à écrit dans la console
         Scanner scan2 = new Scanner(System.in);
         i = scan2.nextInt();
         //récupère le titre du scénario choisi par le joueur
-        tab = s.GetList(i);
+        tab = scenarios.get(i);
         // game set up
+        System.out.println(tab);
+        System.out.println(tab.getScenarioEventList());
     }
+
 }

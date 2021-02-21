@@ -1,31 +1,41 @@
 import java.util.ArrayList;
 
+/*
 public class EventCreator
 {
-        //constructeur d'une proposition d'un évènement
-        public class propositon {
-            int capitalistes;
-            int communistes;
-            int libéraux;
-            int religieux;
-            int militaristes;
-            int écologistes;
-            int nationalistes;
-            int loyalistes;
-        }
-        //constructeur d'un évènement
-        public class event {
-            String title;
-            String textProposition1;
-            propositon propositon1 = new propositon();
-            String textProposition2;
-            propositon propositon2 = new propositon();
-            ArrayList<String> tags;
-        }
+    public void eventCreator(){
+
+
+        event1.addProposition(propositon1Bombardement);
+        event1.addProposition(proposition2Bombardement);
+
+        Event event2 = new Event("Attaque de gaz", Season.All);
+        Proposition proposition1AttaqueDeGaz = new Proposition("Fournir des masques à gaz à toute la population");
+        proposition1AttaqueDeGaz.setReligieux(3);
+        proposition1AttaqueDeGaz.setLibéraux(-3);
+        proposition1AttaqueDeGaz.setEcologistes(-2);
+        proposition1AttaqueDeGaz.setMilitaristes(-1);
+
+        Proposition proposition2AttaqueDeGaz = new Proposition("Ne rien faire");
+        proposition2AttaqueDeGaz.setMilitaristes(-3);
+        proposition2AttaqueDeGaz.setEcologistes(-2);
+        proposition2Bombardement.setLibéraux(-3);
+        proposition2Bombardement.setEcologistes(-1);
+
+        event2.addProposition(proposition1AttaqueDeGaz);
+        event2.addProposition(proposition2AttaqueDeGaz);
+    }
+
+
+
+
+
+
+        private ArrayList<event> eventList = new ArrayList();
 
         //event.tag : allSeason quand l'évènement est possible dans toutes les saisons, sinon, saison(s) spécifiée(s)
         //chaque évènement possède le tag de chaque scénario auquel il peut participer
-        public void eventCreator(){
+        public void evenlk,tCreator(){
             event event1 = new event();
             event1.title = "Bombardement";
             event1.textProposition1 = "Abbattre les bombardiers";
@@ -48,6 +58,7 @@ public class EventCreator
             event1.propositon2.religieux = -15;
             event1.tags.add("guerre");
             event1.tags.add("allSeasons");
+            eventList.add(event1);
 
             event event2 = new event();
             event2.title = "Attaque de gaz";
@@ -71,6 +82,7 @@ public class EventCreator
             event2.propositon2.religieux = -15;
             event2.tags.add("guerre");
             event2.tags.add("allSeasons");
+            eventList.add(event2);
 
             event event3 = new event();
             event3.title = "Faiblesse détéctée dans les défenses enemis";
@@ -94,6 +106,7 @@ public class EventCreator
             event3.propositon2.religieux = -15;
             event3.tags.add("guerre");
             event3.tags.add("allSeasons");
+            eventList.add(event3);
 
             event event4 = new event();
             event4.title = "Nouveau modèle de fusils opérationnel !";
@@ -117,6 +130,7 @@ public class EventCreator
             event4.propositon2.religieux = -15;
             event4.tags.add("guerre");
             event4.tags.add("allSeasons");
+            eventList.add(event4);
 
             event event5 = new event();
             event5.title = "Explosion de l'usine d'armement";
@@ -140,6 +154,7 @@ public class EventCreator
             event5.propositon2.religieux = -15;
             event5.tags.add("guerre");
             event5.tags.add("allSeasons");
+            eventList.add(event5);
 
             event event6 = new event();
             event6.title = "Soulèvement de la population";
@@ -164,6 +179,7 @@ public class EventCreator
             event6.tags.add("guerre");
             event6.tags.add("guerre civile");
             event6.tags.add("allSeasons");
+            eventList.add(event6);
 
             event event7 = new event();
             event7.title = "Famine";
@@ -188,6 +204,7 @@ public class EventCreator
             event7.tags.add("guerre");
             event7.tags.add("guerre civile");
             event7.tags.add("allSeasons");
+            eventList.add(event7);
 
             event event8 = new event();
             event8.title = "Complot innterne à l'armée";
@@ -212,6 +229,7 @@ public class EventCreator
             event8.tags.add("guerre");
             event8.tags.add("guerre civile");
             event8.tags.add("allSeasons");
+            eventList.add(event8);
 
             event event9 = new event();
             event9.title = "Tempete de neige";
@@ -236,6 +254,7 @@ public class EventCreator
             event9.tags.add("guerre");
             event9.tags.add("guerre civile");
             event9.tags.add("hiver");
+            eventList.add(event9);
 
             event event10 = new event();
             event10.title = "L'armée est en sous nombre";
@@ -259,6 +278,7 @@ public class EventCreator
             event10.propositon2.religieux = -15;
             event10.tags.add("guerre");
             event10.tags.add("allSeasons");
+            eventList.add(event10);
 
             event event11 = new event();
             event11.title = "Les munitions viennent à manquer";
@@ -283,6 +303,7 @@ public class EventCreator
             event11.tags.add("guerre");
             event11.tags.add("guerre civile");
             event11.tags.add("allSeasons");
+            eventList.add(event11);
 
             event event12 = new event();
             event12.title = "Escouade coincée derrière les lignes enemis";
@@ -306,5 +327,10 @@ public class EventCreator
             event12.propositon2.religieux = -15;
             event12.tags.add("guerre");
             event12.tags.add("allSeasons");
+            eventList.add(event12);
         }
-}
+        public ArrayList<event> getEventList(){
+            return eventList;
+        }
+
+}*/
