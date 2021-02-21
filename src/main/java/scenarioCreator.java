@@ -6,19 +6,19 @@ public class scenarioCreator {
 
     public scenarioCreator(){
 
+        Scenario scenario0 = new Scenario();
+        scenario0.title = "Sandbox";
+        scenarioList.add(scenario0);
+
         Scenario scenario1 = new Scenario();
-        scenario1.title = "Sandbox";
+        scenario1.title = "Guerre";
+        scenario1.tags.add("guerre");
         scenarioList.add(scenario1);
 
         Scenario scenario2 = new Scenario();
-        scenario2.title = "Guerre";
-        scenario2.tags.add("guerre");
+        scenario2.title = "Guerre civile";
+        scenario2.tags.add("guerre civile");
         scenarioList.add(scenario2);
-
-        Scenario scenario3 = new Scenario();
-        scenario3.title = "Guerre civile";
-        scenario3.tags.add("guerre civile");
-        scenarioList.add(scenario3);
     }
     //fournit la liste des scenarios
     public ArrayList<Scenario> getScenarioList(){
