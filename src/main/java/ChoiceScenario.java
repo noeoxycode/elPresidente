@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ChoiceScenario {
     public static String tab;
-    static Scenario s;
+    static choixScenario s;
     //fonction qui permet de choisir le scénario
     public static void ChoiceScenario() {
         int i = 0;
