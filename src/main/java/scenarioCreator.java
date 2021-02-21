@@ -2,10 +2,10 @@ import java.util.ArrayList;
 //création des scénarios avec leurs tags
 public class scenarioCreator {
 
-    private ArrayList<Scenario> scenarioList = new ArrayList<Scenario>();
+    public static ArrayList<Scenario> scenarioList = new ArrayList<Scenario>();
+
 
     public scenarioCreator(){
-
         Scenario scenario0 = new Scenario();
         scenario0.title = "Sandbox";
         scenarioList.add(scenario0);
@@ -21,7 +21,8 @@ public class scenarioCreator {
         scenarioList.add(scenario2);
     }
     //fournit la liste des scenarios
-    public ArrayList<Scenario> getScenarioList(){
+    public static ArrayList<Scenario> getScenarioList(){
+
         return scenarioList;
     }
 
