@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 // classe menu qui permet de choisir le mode de jeu
 public class Menu {
