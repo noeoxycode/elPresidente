@@ -14,15 +14,18 @@ public class Scenario {
     }
 
     public ArrayList<Event> getScenarioEventList() {
+
         return scenarioEventList;
     }
 
     public void addEvent(Event event) {
+
         scenarioEventList.add(event);
     }
 
     @Override
     public String toString() {
+
         return title;
     }
 }
