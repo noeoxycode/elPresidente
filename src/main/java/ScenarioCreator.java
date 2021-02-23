@@ -23,6 +23,43 @@ public class ScenarioCreator {
         event1.addProposition(proposition2Bombardement);
         event1.addProposition(proposition1Bombardement);
 
+        Event event2 = new Event("Pandémie", Season.All);
+
+        Proposition proposition1Pandemie = new Proposition("Confinement");
+        proposition1Pandemie.setCapitalistes(3);
+        proposition1Pandemie.setLibéraux(2);
+        proposition1Pandemie.setCommunistes(-3);
+        proposition1Pandemie.setEcologistes(-1);
+
+
+        Proposition proposition2Pandémie = new Proposition("Ne rien faire");
+        proposition2Pandémie.setMilitaristes(5);
+        proposition2Pandémie.setEcologistes(-3);
+        proposition2Pandémie.setLoyalistes(3);
+        proposition2Pandémie.setReligieux(-3);
+
+
+        event2.addProposition(proposition1Pandemie);
+        event2.addProposition(proposition2Pandémie);
+
+        Event event3 = new Event("Nouveau variant", Season.All);
+
+        Proposition proposition1NouveauVariant = new Proposition("Recherche nouveau vaccin");
+        proposition1NouveauVariant.setCapitalistes(3);
+        proposition1NouveauVariant.setLibéraux(2);
+        proposition1NouveauVariant.setCommunistes(-3);
+        proposition1NouveauVariant.setEcologistes(-1);
+
+
+        Proposition proposition2NouveauVariant = new Proposition("Ne rien faire");
+        proposition2NouveauVariant.setMilitaristes(5);
+        proposition2NouveauVariant.setEcologistes(-3);
+        proposition2NouveauVariant.setLoyalistes(3);
+        proposition2NouveauVariant.setReligieux(-3);
+
+
+        event3.addProposition(proposition1NouveauVariant);
+        event3.addProposition(proposition2NouveauVariant);
 
         Scenario scenario0 = new Scenario("Sandbox");
         scenarioList.add(scenario0);
@@ -31,9 +68,12 @@ public class ScenarioCreator {
         Scenario scenario1 = new Scenario("Guerre");
         scenarioList.add(scenario1);
         scenario1.addEvent(event1);
+        scenario1.addEvent(event2);
+        scenario1.addEvent(event3);
 
-        Scenario scenario2 = new Scenario("Guerre civile");
+        Scenario scenario2 = new Scenario("Covid-19");
         scenarioList.add(scenario2);
+        scenario2.addEvent(event3);
 
         return scenarioList;
     }
