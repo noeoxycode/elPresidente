@@ -2,7 +2,7 @@ public class Proposition {
     private String title;
     private int capitalistes =0;
     private int communistes =0;
-    private int libéraux =0;
+    private int liberaux =0;
     private int religieux =0;
     private int militaristes =0;
     private int ecologistes =0;
@@ -19,8 +19,8 @@ public class Proposition {
         this.communistes = communistes;
     }
 
-    public void setLibéraux(int libéraux) {
-        this.libéraux = libéraux;
+    public void setLiberaux(int liberaux) {
+        this.liberaux = liberaux;
     }
 
     public void setReligieux(int religieux) {
@@ -40,14 +40,14 @@ public class Proposition {
     }
 
     public void apply(GameState currentGameState){
-        currentGameState.setCapitalistes(this.capitalistes);
-        currentGameState.setCommunistes(this.communistes);
-        currentGameState.setLiberaux(this.libéraux);
-        currentGameState.setLoyalistes(this.loyalistes);
-        currentGameState.setNationalistes(this.nationalistes);
-        currentGameState.setMilitaristes(this.militaristes);
-        currentGameState.setReligieux(this.religieux);
-        currentGameState.setEcologistes(this.ecologistes);
+        currentGameState.capitalistes += this.capitalistes;
+        currentGameState.communistes += this.communistes;
+        currentGameState.liberaux += this.liberaux;
+        currentGameState.loyalistes += this.loyalistes;
+        currentGameState.nationalistes += this.nationalistes;
+        currentGameState.militaristes += this.militaristes;
+        currentGameState.religieux += this.religieux;
+        currentGameState.ecologistes += this.ecologistes;
     }
 }
 

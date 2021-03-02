@@ -35,11 +35,6 @@ public class Menu {
         }
         System.out.println("Veuillez choisir la difficulté : 1 pour facile, 2 pour  moyen, 3 pour difficile");
         i = scan.nextInt();
-        switch (i) {
-            case 1 : i =1;
-            case 2 : i = 2;
-            case 3 : i = 3;
-        }
         GameState currentGameState = new GameState();
         currentGameState.setDifficulty(i);
 
