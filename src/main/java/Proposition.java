@@ -13,9 +13,7 @@ public class Proposition {
         this.title = title;
     }
 
-    public void setCapitalistes(int capitalistes) {
-        this.capitalistes = capitalistes;
-    }
+    public void setCapitalistes(int capitalistes) { this.capitalistes = capitalistes; }
 
     public void setCommunistes(int communistes) {
         this.communistes = communistes;
@@ -29,31 +27,27 @@ public class Proposition {
         this.religieux = religieux;
     }
 
-    public void setMilitaristes(int militaristes) {
-        this.militaristes = militaristes;
-    }
+    public void setMilitaristes(int militaristes) { this.militaristes = militaristes; }
 
     public void setEcologistes(int ecologistes) {
         this.ecologistes = ecologistes;
     }
 
-    public void setNationalistes(int nationalistes) {
-        this.nationalistes = nationalistes;
-    }
+    public void setNationalistes(int nationalistes) { this.nationalistes = nationalistes; }
 
     public void setLoyalistes(int loyalistes) {
         this.loyalistes = loyalistes;
     }
 
-    public void apply(GameState gameState){
-        gameState.capitalistes += this.capitalistes;
-        gameState.comcmunistes += this.communistes;
-        gameState.libéraux += this.libéraux;
-        gameState.loyalistes += this.loyalistes;
-        gameState.nationalistes += this.nationalistes;
-        gameState.militaristes += this.militaristes;
-        gameState.religieux += this.religieux;
-        gameState.ecologistes += this.ecologistes;
+    public void apply(GameState currentGameState){
+        currentGameState.setCapitalistes(this.capitalistes);
+        currentGameState.setCommunistes(this.communistes);
+        currentGameState.setLiberaux(this.libéraux);
+        currentGameState.setLoyalistes(this.loyalistes);
+        currentGameState.setNationalistes(this.nationalistes);
+        currentGameState.setMilitaristes(this.militaristes);
+        currentGameState.setReligieux(this.religieux);
+        currentGameState.setEcologistes(this.ecologistes);
     }
 }
 
