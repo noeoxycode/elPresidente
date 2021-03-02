@@ -8,14 +8,14 @@ public class ScenarioCreator {
 
         Proposition proposition1Bombardement = new Proposition("Abattre les bombardiers");
         proposition1Bombardement.setCapitalistes(3);
-        proposition1Bombardement.setLibéraux(2);
+        proposition1Bombardement.setLiberaux(2);
         proposition1Bombardement.setCommunistes(-3);
         proposition1Bombardement.setEcologistes(-1);
 
 
         Proposition proposition2Bombardement = new Proposition("Contre-attaquer");
         proposition2Bombardement.setMilitaristes(5);
-        proposition2Bombardement.setEcologistes(-3);
+        proposition2Bombardement.setNationalistes(-3);
         proposition2Bombardement.setLoyalistes(3);
         proposition2Bombardement.setReligieux(-3);
 

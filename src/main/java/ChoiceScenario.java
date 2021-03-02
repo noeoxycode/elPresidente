@@ -22,8 +22,8 @@ public class ChoiceScenario {
         //récupère le titre du scénario choisi par le joueur
         tab = scenarios.get(i);
         // game set up
-        System.out.println(tab);
-        System.out.println(tab.getScenarioEventList());
+
+        // appeler difficulty(cette classe appelle tour)
     }
 
 }
