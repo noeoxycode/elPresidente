@@ -15,7 +15,7 @@ public class ScenarioCreator {
 
         Proposition proposition2Bombardement = new Proposition("Contre-attaquer");
         proposition2Bombardement.setMilitaristes(5);
-        proposition2Bombardement.setEcologistes(-3);
+        proposition2Bombardement.setNationalistes(-3);
         proposition2Bombardement.setLoyalistes(3);
         proposition2Bombardement.setReligieux(-3);
 
