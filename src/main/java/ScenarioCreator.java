@@ -8,7 +8,7 @@ public class ScenarioCreator {
 
         Proposition proposition1Bombardement = new Proposition("Abattre les bombardiers");
         proposition1Bombardement.setCapitalistes(3);
-        proposition1Bombardement.setLiberaux(2);
+        proposition1Bombardement.setLibéraux(2);
         proposition1Bombardement.setCommunistes(-3);
         proposition1Bombardement.setEcologistes(-1);
 
