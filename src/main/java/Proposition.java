@@ -13,7 +13,9 @@ public class Proposition {
         this.title = title;
     }
 
-    public void setCapitalistes(int capitalistes) { this.capitalistes = capitalistes; }
+    public void setCapitalistes(int capitalistes) {
+        this.capitalistes = capitalistes;
+    }
 
     public void setCommunistes(int communistes) {
         this.communistes = communistes;
@@ -39,7 +41,7 @@ public class Proposition {
         this.loyalistes = loyalistes;
     }
 
-    public void apply(GameState currentGameState,Proposition proposition){
+    public GameState apply(GameState currentGameState,Proposition proposition){
         currentGameState.capitalistes += proposition.capitalistes;
         currentGameState.communistes += proposition.communistes;
         currentGameState.liberaux += proposition.liberaux;
@@ -48,38 +50,7 @@ public class Proposition {
         currentGameState.militaristes += proposition.militaristes;
         currentGameState.religieux += proposition.religieux;
         currentGameState.ecologistes += proposition.ecologistes;
+        return currentGameState;
     }
-    public int getCapitalistes() {
-        return capitalistes;
-    }
-
-    public int getCommunistes() {
-        return communistes;
-    }
-
-    public int getLiberaux() {
-        return liberaux;
-    }
-
-    public int getReligieux() {
-        return religieux;
-    }
-
-    public int getMilitaristes() {
-        return militaristes;
-    }
-
-    public int getEcologistes() {
-        return ecologistes;
-    }
-
-    public int getNationalistes() {
-        return nationalistes;
-    }
-
-    public int getLoyalistes() {
-        return loyalistes;
-    }
-
 }
 

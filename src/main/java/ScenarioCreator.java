@@ -19,11 +19,11 @@ public class ScenarioCreator {
         proposition2Bombardement.setLoyalistes(3);
         proposition2Bombardement.setReligieux(-3);
 
-
-        event1.addProposition(proposition2Bombardement);
         event1.addProposition(proposition1Bombardement);
+        event1.addProposition(proposition2Bombardement);
 
-        Event event2 = new Event("Pandémie", Season.All);
+
+        Event event2 = new Event("Pandémie", Season.Summer);
 
         Proposition proposition1Pandemie = new Proposition("Confinement");
         proposition1Pandemie.setCapitalistes(3);
@@ -69,7 +69,7 @@ public class ScenarioCreator {
         scenarioList.add(scenario1);
         scenario1.addEvent(event1);
         scenario1.addEvent(event2);
-        scenario1.addEvent(event3);
+        //scenario1.addEvent(event3);
 
         Scenario scenario2 = new Scenario("Covid-19");
         scenarioList.add(scenario2);
