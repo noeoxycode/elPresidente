@@ -1,12 +1,12 @@
 public class GameState {
-    public int capitalistes = 50;
-    public int communistes = 50;
-    public int liberaux= 50;
-    public int religieux= 50;
-    public int militaristes= 50;
-    public int ecologistes= 50;
-    public int nationalistes= 50;
-    public int loyalistes= 50;
+    public float capitalistes = 50;
+    public float communistes = 50;
+    public float liberaux= 50;
+    public float religieux= 50;
+    public float militaristes= 50;
+    public float ecologistes= 50;
+    public float nationalistes= 50;
+    public float loyalistes= 50;
     public int difficulty = 1;
     public int score = 0;
 

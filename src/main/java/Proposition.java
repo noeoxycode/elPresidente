@@ -1,13 +1,13 @@
 public class Proposition {
     private String title;
-    private int capitalistes =0;
-    private int communistes =0;
-    private int liberaux =0;
-    private int religieux =0;
-    private int militaristes =0;
-    private int ecologistes =0;
-    private int nationalistes =0;
-    private int loyalistes =0;
+    private float capitalistes =0;
+    private float communistes =0;
+    private float liberaux =0;
+    private float religieux =0;
+    private float militaristes =0;
+    private float ecologistes =0;
+    private float nationalistes =0;
+    private float loyalistes =0;
 
     public Proposition(String title) {
         this.title = title;
