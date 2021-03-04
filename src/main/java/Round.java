@@ -4,12 +4,18 @@ import java.util.Scanner;
 public class Round {
     public static void Tour(GameState currentState){
         int j;
-        //Choisi un évenement aléatoire
+        GameState state = new GameState();
+        int i = 1;
+        boolean res = false;
+        Event season = new Event("test",Season.Spring);
         Random r = new Random();
-        int i = r.nextInt(ChoiceScenario.tab.getScenarioEventList().size());
+        //Choisi un évenement aléatoire en fonction de la saison
+        while(res!=true){
+            i = r.nextInt(ChoiceScenario.tab.getScenarioEventList().size());
+            res = season.checkSeason(ChoiceScenario.tab.getScenarioEventList().get(i).getSeason());
+        }
         //affiche l'évenement choisi ci-dessus
         System.out.println("Event: "+ ChoiceScenario.tab.getScenarioEventList().get(i));
-        Event test = ChoiceScenario.tab.getScenarioEventList().get(i);
         //affiche les propositions possible
         System.out.println("1 for "+ChoiceScenario.tab.getScenarioEventList().get(i).getPropositions().get(0));
         System.out.println("2 for "+ChoiceScenario.tab.getScenarioEventList().get(i).getPropositions().get(1));
@@ -18,13 +24,13 @@ public class Round {
         j = scan.nextInt();
         //affecte les variables en fonction de la proposition choisi
         Proposition p = new Proposition("test");
-
-        p.apply(currentState,ChoiceScenario.tab.getScenarioEventList().get(i).getPropositions().get(j-1));
-
-
-        GameState state = new GameState();
+        currentState = p.apply(currentState,ChoiceScenario.tab.getScenarioEventList().get(i).getPropositions().get(j-1));
+        state = currentState;
+        //affiche le score
+        System.out.println(state.liberaux);
         System.out.println(state.capitalistes);
-
+        currentState.score ++;
+        System.out.println(currentState.getScore());
 
     }
 }

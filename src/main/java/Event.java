@@ -15,18 +15,23 @@ public class Event {
         this.propositions.add(proposition);
     }
 
-    public boolean checkSeason (Season season){
-        if (this.season == Season.All)
+    public boolean checkSeason(Season season){
+        if (season == Season.All)
             return true;
         else if(season == this.season ){
             return true;
         }
-        else {return false;}
-
+        else {
+            return false;
+        }
     }
 
     public String getTitle() {
         return title;
+    }
+
+    public Season getSeason(){
+        return season;
     }
 
     public ArrayList<Proposition> getPropositions()

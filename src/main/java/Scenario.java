@@ -19,13 +19,11 @@ public class Scenario {
     }
 
     public void addEvent(Event event) {
-
         scenarioEventList.add(event);
     }
 
     @Override
     public String toString() {
-
         return title;
     }
 }

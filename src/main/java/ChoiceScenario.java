@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class ChoiceScenario {
     public static Scenario tab;
     private static ArrayList<Scenario> scenarios = ScenarioCreator.create();
-
     //fonction qui permet de choisir le scénario
     public static void ChoiceScenario() {
         int i = 0;

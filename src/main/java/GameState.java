@@ -8,12 +8,19 @@ public class GameState {
     public int nationalistes= 50;
     public int loyalistes= 50;
     public int difficulty = 1;
+    public int score = 0;
+
+    public int getScore() {
+        return score;
+    }
 
     public Season currentSeason = Season.Spring;
 
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
     }
+
+
 }
 
 
