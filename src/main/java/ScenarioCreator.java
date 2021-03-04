@@ -179,6 +179,30 @@ public class ScenarioCreator {
         event8.addProposition(proposition1secheresse);
         event8.addProposition(proposition2secheresse);
 
+        Event event9 = new Event("Tornade", Season.Spring);
+
+        Proposition proposition1Tornade = new Proposition("Aider la population à reconstruire");
+        proposition1Tornade.setMilitaristes(1);
+        proposition1Tornade.setCapitalistes(-3);
+        proposition1Tornade.setCommunistes(3);
+        proposition1Tornade.setNationalistes(4);
+        proposition1Tornade.setLoyalistes(4);
+        proposition1Tornade.setReligieux(4);
+        proposition1Tornade.setEcologistes(4);
+        proposition1Tornade.setLibéraux(1);
+
+        Proposition proposition2Tornade = new Proposition("Ne pas faire grand chose");
+        proposition2Tornade.setEcologistes(-3);
+        proposition2Tornade.setMilitaristes(2);
+        proposition2Tornade.setNationalistes(-4);
+        proposition2Tornade.setCommunistes(-4);
+        proposition2Tornade.setCapitalistes(3);
+        proposition2Tornade.setReligieux(-2);
+        proposition2Tornade.setLoyalistes(-4);
+
+        event9.addProposition(proposition1Tornade);
+        event9.addProposition(proposition2Tornade);
+
 
         Event event10 = new Event("Pandémie", Season.All);
 
@@ -279,6 +303,31 @@ public class ScenarioCreator {
         event13.addProposition(proposition1Vaccin);
         event13.addProposition(proposition2Vaccin);
 
+        Event event14 = new Event("Grève", Season.All);
+
+        Proposition proposition1Greve = new Proposition("Appeler la police");
+        proposition1Greve.setCapitalistes(-1);
+        proposition1Greve.setCommunistes(-1);
+        proposition1Greve.setNationalistes(-1);
+        proposition1Greve.setLoyalistes(-2);
+        proposition1Greve.setReligieux(-2);
+        proposition1Greve.setLibéraux(-5);
+        proposition1Greve.setMilitaristes(4);
+
+
+        Proposition proposition2Greve = new Proposition("Ecoutez la population");
+        proposition2Greve.setCapitalistes(3);
+        proposition2Greve.setCommunistes(3);
+        proposition2Greve.setNationalistes(4);
+        proposition2Greve.setLoyalistes(2);
+        proposition2Greve.setReligieux(3);
+        proposition2Greve.setLibéraux(5);
+        proposition2Greve.setMilitaristes(-4);
+
+
+        event14.addProposition(proposition1Greve);
+        event14.addProposition(proposition2Greve);
+
 
 
 
@@ -286,6 +335,19 @@ public class ScenarioCreator {
         Scenario scenario0 = new Scenario("Sandbox");
         scenarioList.add(scenario0);
         scenario0.addEvent(event1);
+        scenario0.addEvent(event2);
+        scenario0.addEvent(event3);
+        scenario0.addEvent(event4);
+        scenario0.addEvent(event5);
+        scenario0.addEvent(event6);
+        scenario0.addEvent(event7);
+        scenario0.addEvent(event8);
+        scenario0.addEvent(event9);
+        scenario0.addEvent(event10);
+        scenario0.addEvent(event11);
+        scenario0.addEvent(event12);
+        scenario0.addEvent(event13);
+        scenario0.addEvent(event14);
 
         Scenario scenario1 = new Scenario("Guerre");
         scenarioList.add(scenario1);
@@ -297,15 +359,19 @@ public class ScenarioCreator {
         scenario1.addEvent(event6);
         scenario1.addEvent(event7);
         scenario1.addEvent(event8);
+        scenario1.addEvent(event9);
 
         Scenario scenario2 = new Scenario("Covid-19");
         scenarioList.add(scenario2);
         scenario2.addEvent(event7);
         scenario2.addEvent(event8);
+        scenario1.addEvent(event9);
         scenario2.addEvent(event10);
         scenario2.addEvent(event11);
         scenario2.addEvent(event12);
         scenario2.addEvent(event13);
+        scenario2.addEvent(event14);
+
         return scenarioList;
     }
 }

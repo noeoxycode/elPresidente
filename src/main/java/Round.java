@@ -3,14 +3,16 @@ import java.util.Scanner;
 
 public class Round {
     public static void Tour(GameState currentState){
-        boolean k = false;
-        //while(k == false){
+            boolean echec = false;
             int j;
+            int s = 0;
             GameState state = new GameState();
             int i = 1;
             float moyenne = 0;
             boolean res = false;
-            Event season = new Event("test",Season.Spring);
+            Season test = Season.Spring;
+            while(echec == false){
+            Event season = new Event("test",test);
             Random r = new Random();
             //Choisi un évenement aléatoire en fonction de la saison
             while(res!=true){
@@ -36,7 +38,20 @@ public class Round {
             currentState.score ++;
             System.out.println("Your score is " + currentState.getScore());
            // k = CheckEndGame(moyenne);
-        //}
+             //change la saison
+        s++;
+        if(s==1){
+            test = Season.Summer;
+        }else if (s==2){
+            test = Season.Fall;
+        }else if (s==3){
+            test = Season.Winter;
+        }else if (s==4){
+            s = 0;
+            test = Season.Spring;
+        }
+
+        }
         //appelle end Game
     }
 }
