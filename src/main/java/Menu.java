@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Menu {
+    private static ArrayList<Scenario> scenarios = ScenarioCreator.create();
     public static void debut(){
         int i = 0;
         System.out.println("Welcome in El Presidente\nPlease choose a game mode:\n");
@@ -13,6 +14,7 @@ public class Menu {
             //Le joueur à choisi le mode sandbox
             case 1:
                 System.out.println("You chose the sandbox mode\n");
+                ChoiceScenario.tab = scenarios.get(0);
                 Difficulty.ChoiceDifficulty();
                 break;
             //Le joueur à choisi le mode scénario
