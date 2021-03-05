@@ -11,14 +11,15 @@ public class Round {
             float moyenne = 0;
             boolean res = false;
             Season test = Season.Spring;
-            while(echec == false){
+            while(!echec){
             Event season = new Event("test",test);
             Random r = new Random();
             //Choisi un évenement aléatoire en fonction de la saison
-            while(res!=true){
+            while(!res){
                 i = r.nextInt(ChoiceScenario.tab.getScenarioEventList().size());
                 res = season.checkSeason(ChoiceScenario.tab.getScenarioEventList().get(i).getSeason());
             }
+            res=false;
             //affiche l'évenement choisi ci-dessus
             System.out.println("Event: "+ ChoiceScenario.tab.getScenarioEventList().get(i));
             //affiche les propositions possible
@@ -27,17 +28,25 @@ public class Round {
             //récupère la proposition choisi
             Scanner scan = new Scanner(System.in);
             j = scan.nextInt();
+            if (j > 2 || j < 1){
+                while (j > 2)
+                {
+                    System.out.println("Error, please choose between 1 and 2");
+                    j = scan.nextInt();
+                }
+            }
+
             //affecte les variables en fonction de la proposition choisi
-            Proposition p = new Proposition("test");
+            Proposition p = new Proposition(" ");
             currentState = p.apply(currentState,ChoiceScenario.tab.getScenarioEventList().get(i).getPropositions().get(j-1));
             state = currentState;
             //calcule et affiche la moyenne de satisfaction des factions
             moyenne = ((state.capitalistes + state.communistes + state.ecologistes + state.liberaux + state.loyalistes + state.militaristes + state.nationalistes + state.religieux)/8);
-            System.out.println(moyenne);
+            System.out.println("Your  average this round is : "  + moyenne);
             //affiche le score
             currentState.score ++;
             System.out.println("Your score is " + currentState.getScore());
-           // k = CheckEndGame(moyenne);
+            System.out.println("\n");
              //change la saison
         s++;
         if(s==1){
@@ -50,8 +59,9 @@ public class Round {
             s = 0;
             test = Season.Spring;
         }
-
+        EndGame check = new EndGame();
+        check.endGame(moyenne, currentState.difficulty, currentState.score);
         }
-        //appelle end Game
+
     }
 }
