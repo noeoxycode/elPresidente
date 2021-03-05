@@ -13,6 +13,8 @@ public class Proposition {
         this.title = title;
     }
 
+    public String getTitle(){return title;}
+
     public void setCapitalistes(int capitalistes) {
         this.capitalistes = capitalistes;
     }
@@ -52,5 +54,9 @@ public class Proposition {
         currentGameState.ecologistes += proposition.ecologistes;
         return currentGameState;
     }
-}
+
+    @Override
+    public String toString() {
+        return getTitle();
+}}
 
