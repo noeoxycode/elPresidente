@@ -207,7 +207,7 @@ public class EventCreator
             eventList.add(event7);
 
             event event8 = new event();
-            event8.title = "Complot innterne à l'armée";
+            event8.title = "Complot interne à l'armée";
             event8.textProposition1 = "Fusiller les traitres";
             event8.propositon1.capitalistes = -5;
             event8.propositon1.loyalistes = 5;
