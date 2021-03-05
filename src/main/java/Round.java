@@ -11,15 +11,15 @@ public class Round {
             float moyenne = 0;
             boolean res = false;
             Season test = Season.Spring;
-            while(!echec){
+            while(echec == false){
             Event season = new Event("test",test);
             Random r = new Random();
             //Choisi un évenement aléatoire en fonction de la saison
-            while(!res){
+            while(res!=true){
                 i = r.nextInt(ChoiceScenario.tab.getScenarioEventList().size());
                 res = season.checkSeason(ChoiceScenario.tab.getScenarioEventList().get(i).getSeason());
             }
-            res=false;
+            res = false;
             //affiche l'évenement choisi ci-dessus
             System.out.println("Event: "+ ChoiceScenario.tab.getScenarioEventList().get(i));
             //affiche les propositions possible
