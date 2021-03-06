@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Round {
     public static void Tour(GameState currentState){
             boolean echec = false;
+            endOfTheYear End = new endOfTheYear();
             int j;
             int s = 0;
             GameState state = new GameState();
@@ -11,6 +12,7 @@ public class Round {
             float moyenne = 0;
             boolean res = false;
             Season test = Season.Spring;
+            System.out.println("\nLet the game begin !");
             while(echec == false){
             Event season = new Event("test",test);
             Random r = new Random();
@@ -21,8 +23,9 @@ public class Round {
             }
             res = false;
             //affiche l'évenement choisi ci-dessus
-            System.out.println("Event: "+ ChoiceScenario.tab.getScenarioEventList().get(i));
+            System.out.println("A new event has just appeared: "+ ChoiceScenario.tab.getScenarioEventList().get(i)+"\n");
             //affiche les propositions possible
+            System.out.println("Choose one of these two proposals:");
             System.out.println("1 for "+ChoiceScenario.tab.getScenarioEventList().get(i).getPropositions().get(0));
             System.out.println("2 for "+ChoiceScenario.tab.getScenarioEventList().get(i).getPropositions().get(1));
             //récupère la proposition choisi
@@ -45,8 +48,7 @@ public class Round {
             System.out.println("Your  average this round is : "  + moyenne);
             //affiche le score
             currentState.score ++;
-            System.out.println("Your score is " + currentState.getScore());
-            System.out.println("\n");
+            System.out.println("Your game score is " + currentState.getScore()+"\n");
              //change la saison
         s++;
         if(s==1){
@@ -57,7 +59,8 @@ public class Round {
             test = Season.Winter;
         }else if (s==4){
             s = 0;
-            //ici, appeler endOfTheYear
+            //appelle endOfTheYear
+            //result = End.endOfYear();
             test = Season.Spring;
         }
         EndGame check = new EndGame();
