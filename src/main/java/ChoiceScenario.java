@@ -4,11 +4,9 @@ import java.util.ArrayList;
 public class ChoiceScenario {
     public static Scenario tab;
     private static ArrayList<Scenario> scenarios = ScenarioCreator.create();
-
     //fonction qui permet de choisir le scénario
     public static void ChoiceScenario() {
         int i = 0;
-        int length;
         //affiche tout les scénarios
         System.out.println("You chose the scenario mode.\n");
         System.out.println("Now choose a scenario:");
@@ -21,9 +19,8 @@ public class ChoiceScenario {
         i = scan2.nextInt();
         //récupère le titre du scénario choisi par le joueur
         tab = scenarios.get(i);
-        // game set up
-
-        // appeler difficulty(cette classe appelle tour)
+        // appelle difficulty
+        Difficulty.ChoiceDifficulty();
     }
 
 }
