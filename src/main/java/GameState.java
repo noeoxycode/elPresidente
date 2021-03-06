@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class GameState {
     public float capitalistes = 50;
     public float communistes = 50;
@@ -9,6 +11,17 @@ public class GameState {
     public float loyalistes= 50;
     public int difficulty = 1;
     public int score = 0;
+    public int nbCapitalistes = new Random().nextInt(20);
+    public int nbCommunistes = new Random().nextInt(20);
+    public int nbLiberaux= new Random().nextInt(20);
+    public int nbReligieux= new Random().nextInt(20);
+    public int nbMilitaristes= new Random().nextInt(20);
+    public int nbEcologistes= new Random().nextInt(20);
+    public int nbNationalistes= new Random().nextInt(20);
+    public int nbLoyalistes= new Random().nextInt(20);
+    public int industrialPart = 0;
+    public int agriculturePart = 0;
+
 
     public int getScore() {
         return score;

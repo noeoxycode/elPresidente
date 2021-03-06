@@ -57,6 +57,7 @@ public class Round {
             test = Season.Winter;
         }else if (s==4){
             s = 0;
+            //ici, appeler endOfTheYear
             test = Season.Spring;
         }
         EndGame check = new EndGame();
