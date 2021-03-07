@@ -68,6 +68,8 @@ public class Round {
             s = 0;
             //calcule le nombre de nourriture restante à la fin de l'année
             currentState.nourriture = currentState.nourriture - ((currentState.nbCapitalistes+ currentState.nbCommunistes+ currentState.nbEcologistes+ currentState.nbLiberaux+ currentState.nbLoyalistes+ currentState.nbMilitaristes+ currentState.nbNationalistes+ currentState.nbReligieux)*4);
+            //augmente l'argent du joueur en fonction de l'industrie
+            currentState.money = currentState.money +(currentState.industrialPart*10);
             //appelle endOfTheYear
             currentState = End.endOfYear(currentState);
             test = Season.Spring;
