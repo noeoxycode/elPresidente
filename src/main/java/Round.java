@@ -12,6 +12,13 @@ public class Round {
             float moyenne = 0;
             boolean res = false;
             Season test = Season.Spring;
+            //initialise le pourcentage d'agriculture et d'industrie dans la partie
+            while(currentState.agriculturePart + currentState.industrialPart > 100){
+                currentState.agriculturePart = new Random().nextInt(100);
+                currentState.industrialPart = new Random().nextInt(100);
+            }
+            //initialise le nbr de nourriture en fonction du pourcentage de l'agriculture
+            currentState.nourriture = currentState.agriculturePart*40;
             System.out.println("\nLet the game begin !");
             while(echec == false){
             Event season = new Event("test",test);
@@ -59,6 +66,8 @@ public class Round {
             test = Season.Winter;
         }else if (s==4){
             s = 0;
+            //calcule le nombre de nourriture restante à la fin de l'année
+            currentState.nourriture = currentState.nourriture - ((currentState.nbCapitalistes+ currentState.nbCommunistes+ currentState.nbEcologistes+ currentState.nbLiberaux+ currentState.nbLoyalistes+ currentState.nbMilitaristes+ currentState.nbNationalistes+ currentState.nbReligieux)*4);
             //appelle endOfTheYear
             currentState = End.endOfYear(currentState);
             test = Season.Spring;

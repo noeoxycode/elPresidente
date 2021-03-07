@@ -19,8 +19,9 @@ public class GameState {
     public int nbEcologistes= new Random().nextInt(20);
     public int nbNationalistes= new Random().nextInt(20);
     public int nbLoyalistes= new Random().nextInt(20);
-    public int industrialPart = 0;
-    public int agriculturePart = 0;
+    public int industrialPart = 100;
+    public int agriculturePart = 100;
+    public int nourriture = 0;
     public int money = 200;
 
 
