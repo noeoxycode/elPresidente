@@ -115,7 +115,7 @@ public class endOfTheYear {
         }
         return currentState;
     }
-
+// demande au joueur de savoir si il veut acheter des unités de nourriture ou pas
     public GameState foodMarket(GameState currentState){
         int i = 0;
         int j = 0;
@@ -133,9 +133,11 @@ public class endOfTheYear {
                     //choisi le nombre d'unité qu'il veut acheter
                     System.out.println("How many units of food do you want to buy?");
                     i = scan.nextInt();
+                    //Vérifie si il a assez de monnaie pour acheter
                     if(i*8 > currentState.money){
                         System.out.println("You do not have enough money");
                     }else{
+                        //diminue sont argent en fonction de nombre d'unité acheté
                         currentState.money = currentState.money-(i*8);
                         currentState.nourriture = currentState.nourriture+i;
                         System.out.println("Your purchase has been made,you have more than "+currentState.money+" of currency, see you soon !\n");
@@ -144,28 +146,31 @@ public class endOfTheYear {
                 }
                 break;
                 case 2:
+                    //Pour Quitter
                     System.out.println("See you later\n");
                     break;
                 default:
                     System.out.println("Error, please try again");
         }
-
         return currentState;
     }
-
+// affiche les résultats de la fin d'année
     public GameState EndOfYearReview(GameState currentState){
         System.out.println("It's time to take stock of the end of the year.\n");
     int i = new Random().nextInt(10);
         if(currentState.nourriture<0 || currentState.nourriture < (currentState.nbrPartGlobal*4)){
             System.out.println("Too bad, some supporters have left");
+            //enlève des partisans si il n'a pas assez d'argent et de nourriture
             while(currentState.nourriture < 0 || currentState.nourriture < (currentState.nbrPartGlobal*4)){
                 currentState.nbrPartGlobal--;
                 currentState.nourriture = currentState.nourriture + 4;
+                //affiche endgame si il n'y a plus aucun partisans
                 if(currentState.nbrPartGlobal<0){
                     EndGame end = new EndGame();
                     end.endGame(currentState.moyenne, currentState.difficulty, currentState.score);
                 }
             }
+            //augmente le nombre de partisans
         }else{
             currentState.nourriture = currentState.nourriture - (currentState.nbrPartGlobal*4);
             System.out.println("Congratulations, the number of supporters has just increased");
