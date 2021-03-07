@@ -7,9 +7,7 @@ public class Round {
             endOfTheYear End = new endOfTheYear();
             int j;
             int s = 0;
-            GameState state = new GameState();
             int i = 1;
-            float moyenne = 0;
             boolean res = false;
             Season test = Season.Spring;
             //initialise le pourcentage d'agriculture et d'industrie dans la partie
@@ -17,6 +15,7 @@ public class Round {
                 currentState.agriculturePart = new Random().nextInt(100);
                 currentState.industrialPart = new Random().nextInt(100);
             }
+            currentState.nbrPartGlobal = (currentState.capitalistes.getPopulation()+ currentState.communistes.getPopulation()+ currentState.ecologistes.getPopulation()+ currentState.liberaux.getPopulation()+ currentState.loyalistes.getPopulation()+ currentState.militaristes.getPopulation()+ currentState.nationalistes.getPopulation()+ currentState.religieux.getPopulation());
             //initialise le nbr de nourriture en fonction du pourcentage de l'agriculture
             currentState.nourriture = currentState.agriculturePart*40;
             System.out.println("\nLet the game begin !");
@@ -49,10 +48,9 @@ public class Round {
             //affecte les variables en fonction de la proposition choisi
             Proposition p = ChoiceScenario.tab.getScenarioEventList().get(i).getPropositions().get(j-1) ;
             p.apply(currentState);
-            state = currentState;
             //calcule et affiche la moyenne de satisfaction des factions
-            moyenne = ((state.capitalistes.getPopularity() + state.communistes.getPopularity() + state.ecologistes.getPopularity() + state.liberaux.getPopularity() + state.loyalistes.getPopularity() + state.militaristes.getPopularity() + state.nationalistes.getPopularity() + state.religieux.getPopularity())/8);
-            System.out.println("Your  average this round is : " + moyenne);
+            currentState.moyenne = ((currentState.capitalistes.getPopularity() + currentState.communistes.getPopularity() + currentState.ecologistes.getPopularity() + currentState.liberaux.getPopularity() + currentState.loyalistes.getPopularity() + currentState.militaristes.getPopularity() + currentState.nationalistes.getPopularity() + currentState.religieux.getPopularity())/8);
+            System.out.println("Your  average this round is : " + currentState.moyenne);
             //affiche le score
             currentState.score ++;
             System.out.println("Your game score is " + currentState.getScore()+"\n");
@@ -67,15 +65,17 @@ public class Round {
         }else if (s==4){
             s = 0;
             //calcule le nombre de nourriture restante à la fin de l'année
-            currentState.nourriture = currentState.nourriture - ((currentState.nbCapitalistes+ currentState.nbCommunistes+ currentState.nbEcologistes+ currentState.nbLiberaux+ currentState.nbLoyalistes+ currentState.nbMilitaristes+ currentState.nbNationalistes+ currentState.nbReligieux)*4);
+            currentState.nourriture = currentState.nourriture - (currentState.nbrPartGlobal*4);
             //augmente l'argent du joueur en fonction de l'industrie
             currentState.money = currentState.money +(currentState.industrialPart*10);
+            //augmente le nombre de nourriture en fonction de l'agriculture
+            currentState.nourriture = currentState.nourriture +(currentState.agriculturePart*40);
             //appelle endOfTheYear
             currentState = End.endOfYear(currentState);
             test = Season.Spring;
         }
         EndGame check = new EndGame();
-        check.endGame(moyenne, currentState.difficulty, currentState.score);
+        check.endGame(currentState.moyenne, currentState.difficulty, currentState.score);
         }
 
     }

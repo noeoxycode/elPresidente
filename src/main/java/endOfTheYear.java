@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class endOfTheYear {
@@ -14,7 +15,7 @@ public class endOfTheYear {
         System.out.println("\n");
         while (!result){
             System.out.println("Now choose one of these proposals:");
-            System.out.println("1 is for Bribe\n2 is for Food Market\n3 is for Year-end review\n4 is for To leave it mlike it is now");
+            System.out.println("1 is for Bribe\n2 is for Food Market\n3 is for To leave it like it is now");
             Scanner scan = new Scanner(System.in);
             i = scan.nextInt();
             switch(i){
@@ -30,16 +31,16 @@ public class endOfTheYear {
                     foodMarket(currentState);
                     break;
                 case 3:
-                    //appeler Year-end review
-                    break;
-                case 4:
-                    System.out.println("See you next year");
                     result = true;
+                    break;
                 default:
                     System.out.println("Error, please try again");
                     break;
             }
         }
+        //appeler end of year review
+        EndOfYearReview(currentState);
+        System.out.println("See you next year\n");
         return currentState;
     }
 
@@ -76,7 +77,7 @@ public class endOfTheYear {
         int corruptionCost = faction.getCorruptionCost();
         System.out.println("To upgrade their grade, you will need to pay " + corruptionCost + " dollars" );
         System.out.println("Actually, you have " + currentState.money + " dollars");
-        System.out.println("Would you like to make a ribes ?");
+        System.out.println("Would you like to make a bribe ?");
         System.out.println("1 for yes   2 for no");
         boolean check = false;
         //la boucle sert en cas de saisie d'un mauvais numéro
@@ -97,7 +98,7 @@ public class endOfTheYear {
                     check = true;
                 }
                 else {
-                    System.out.println("Sorry, you do not have anought money !");
+                    System.out.println("Sorry, you do not have enough money !");
                     check = true;
                 }
             }
@@ -115,15 +116,13 @@ public class endOfTheYear {
         return currentState;
     }
 
-
-
-
     public GameState foodMarket(GameState currentState){
         int i = 0;
         int j = 0;
         boolean check = false;
-        System.out.println("\nYour currency is: " +currentState.money);
+        System.out.println("\nActually, you have " + currentState.money + " dollars");
         System.out.println("You have "+currentState.nourriture+" food unit.");
+        System.out.println("Here's the overall number of supporters "+ currentState.nbrPartGlobal);
         System.out.println("1 for buy\n2 for to leave");
         //choisi si il veut acheter ou pas
         Scanner scan = new Scanner(System.in);
@@ -147,9 +146,32 @@ public class endOfTheYear {
                 case 2:
                     System.out.println("See you later\n");
                     break;
+                default:
+                    System.out.println("Error, please try again");
         }
 
         return currentState;
     }
 
+    public GameState EndOfYearReview(GameState currentState){
+        System.out.println("It's time to take stock of the end of the year.\n");
+    int i = new Random().nextInt(10);
+        if(currentState.nourriture<0 || currentState.nourriture < (currentState.nbrPartGlobal*4)){
+            System.out.println("Too bad, some supporters have left");
+            while(currentState.nourriture < 0 || currentState.nourriture < (currentState.nbrPartGlobal*4)){
+                currentState.nbrPartGlobal--;
+                currentState.nourriture = currentState.nourriture + 4;
+                if(currentState.nbrPartGlobal<0){
+                    EndGame end = new EndGame();
+                    end.endGame(currentState.moyenne, currentState.difficulty, currentState.score);
+                }
+            }
+        }else{
+            currentState.nourriture = currentState.nourriture - (currentState.nbrPartGlobal*4);
+            System.out.println("Congratulations, the number of supporters has just increased");
+            currentState.nbrPartGlobal = currentState.nbrPartGlobal*i;
+        }
+
+        return currentState;
+    }
 }
