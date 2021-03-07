@@ -20,7 +20,10 @@ public class endOfTheYear {
             switch(i){
                 case 1:
                     //appeler Bribe
-                    Bribe(currentState);
+                    System.out.println("You chose to corrupt a faction");
+                    System.out.println("Now, pick the faction that you want to corrupt :");
+                    Faction faction = pickFaction(currentState);
+                    Bribe(currentState, faction);
                     break;
                 case 2:
                     //appeler Food Market
@@ -39,18 +42,38 @@ public class endOfTheYear {
         return currentState;
     }
 
+    public Faction pickFaction(GameState currentState){
+        System.out.println("Pick the faction that you want to corrupt with the right number :");
+        System.out.println("1 for capitalistes");
+        System.out.println("2 for communistes");
+        System.out.println("3 for liberaux");
+        System.out.println("4 for religieux");
+        System.out.println("5 for militaristes");
+        System.out.println("6 for ecologistes");
+        System.out.println("7 for nationalistes");
+        System.out.println("8 for loyalistes");
+
+        Scanner scan = new Scanner(System.in);
+        int i = scan.nextInt();
+        return switch (i) {
+            case 1 -> currentState.capitalistes;
+            case 2 -> currentState.communistes;
+            case 3 -> currentState.liberaux;
+            case 4 -> currentState.religieux;
+            case 5 -> currentState.militaristes;
+            case 6 -> currentState.ecologistes;
+            case 7 -> currentState.nationalistes;
+            case 8 -> currentState.loyalistes;
+            default -> pickFaction(currentState);
+        };
+    }
 
 
-
-//Trouver un moyen d'appliquer ce code à toutes les factions
-    //idée :
-//au moment où on selectionne bride dans endOfTheYear, lui demander quelle section soudoyer, et appeler ensuite bride avec en parametre le nom de la faction
-//et donc il soudoierait toutes les factions voulues une par une
-    public GameState Bribe(GameState currentState){
+    public GameState Bribe(GameState currentState, Faction faction){
         //on montre le % du parti et on propose de soudoyer en exposant le prix, et l'argent que l'on possède
-        System.out.println("The capitalist are " + currentState.nbCapitalistes + " and " + currentState.capitalistes + "% of them like you");
-        int costCapitalist = currentState.nbCapitalistes * 15;
-        System.out.println("To upgrade their grade, you will need to pay " + costCapitalist + " dollars" );
+        System.out.println("The " + faction.getName() + " are " + faction.getPopulation() + " and " + faction.getPopularity() + "% of them like you");
+        int corruptionCost = faction.getCorruptionCost();
+        System.out.println("To upgrade their grade, you will need to pay " + corruptionCost + " dollars" );
         System.out.println("Actually, you have " + currentState.money + " dollars");
         System.out.println("Would you like to make a ribes ?");
         System.out.println("1 for yes   2 for no");
@@ -64,21 +87,17 @@ public class endOfTheYear {
             //le joueur veut faire un pot de vin
             if (i == 1)
             {
-                //on vérifie que le joueur possède assez d'argent
-                if (0 < (currentState.money - costCapitalist))
+                CorruptionResult result = faction.corrupt(currentState.money);
+                currentState.money = result.newMoney;
+                //le joueur a corrompu cette faction
+                if (result.isCorrupted)
                 {
-                    currentState.capitalistes += 10;
-                    //on check que le % n'eccede pas 100%
-                    if (currentState.capitalistes > 100)
-                        currentState.capitalistes = 100;
-                    currentState.money = currentState.money - costCapitalist;
                     System.out.println("The bribe has been successfully made !");
                     check = true;
                 }
-                //quand ce cas arrive, le programme est coincé, essayer de le décoincer
                 else {
                     System.out.println("Sorry, you do not have anought money !");
-                    check = false;
+                    check = true;
                 }
             }
             //le joueur ne veut pas faire de pot de vin

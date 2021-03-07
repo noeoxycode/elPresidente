@@ -13,11 +13,11 @@ public class Round {
             boolean res = false;
             Season test = Season.Spring;
             System.out.println("\nLet the game begin !");
-            while(echec == false){
+            while(!echec){
             Event season = new Event("test",test);
             Random r = new Random();
             //Choisi un évenement aléatoire en fonction de la saison
-            while(res!=true){
+            while(!res){
                 i = r.nextInt(ChoiceScenario.tab.getScenarioEventList().size());
                 res = season.checkSeason(ChoiceScenario.tab.getScenarioEventList().get(i).getSeason());
             }
@@ -40,12 +40,12 @@ public class Round {
             }
 
             //affecte les variables en fonction de la proposition choisi
-            Proposition p = new Proposition(" ");
-            currentState = p.apply(currentState,ChoiceScenario.tab.getScenarioEventList().get(i).getPropositions().get(j-1));
+            Proposition p = ChoiceScenario.tab.getScenarioEventList().get(i).getPropositions().get(j-1) ;
+            p.apply(currentState);
             state = currentState;
             //calcule et affiche la moyenne de satisfaction des factions
-            moyenne = ((state.capitalistes + state.communistes + state.ecologistes + state.liberaux + state.loyalistes + state.militaristes + state.nationalistes + state.religieux)/8);
-            System.out.println("Your  average this round is : "  + moyenne);
+            moyenne = ((state.capitalistes.getPopularity() + state.communistes.getPopularity() + state.ecologistes.getPopularity() + state.liberaux.getPopularity() + state.loyalistes.getPopularity() + state.militaristes.getPopularity() + state.nationalistes.getPopularity() + state.religieux.getPopularity())/8);
+            System.out.println("Your  average this round is : " + moyenne);
             //affiche le score
             currentState.score ++;
             System.out.println("Your game score is " + currentState.getScore()+"\n");
