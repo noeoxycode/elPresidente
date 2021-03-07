@@ -4,7 +4,7 @@ public class Menu {
     private static ArrayList<Scenario> scenarios = ScenarioCreator.create();
     public static void debut(){
         int i = 0;
-        System.out.println("\n-----Welcome to El présidente game! By Kevin et noe-----\n\nPlease choose a game mode:\n");
+        System.out.println("\n-----Welcome to El présidente game! By Kevin and Noe-----\n\nPlease choose a game mode:\n");
         System.out.println("1 for Sandbox mode");
         System.out.println("2 for Scenario mode\n");
         //récupère la valeur que le joueur à écrit dans la console

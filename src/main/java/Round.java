@@ -60,7 +60,7 @@ public class Round {
         }else if (s==4){
             s = 0;
             //appelle endOfTheYear
-            //result = End.endOfYear();
+            currentState = End.endOfYear(currentState);
             test = Season.Spring;
         }
         EndGame check = new EndGame();

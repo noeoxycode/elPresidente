@@ -21,6 +21,7 @@ public class GameState {
     public int nbLoyalistes= new Random().nextInt(20);
     public int industrialPart = 0;
     public int agriculturePart = 0;
+    public int money = 200;
 
 
     public int getScore() {
