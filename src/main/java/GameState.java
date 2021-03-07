@@ -11,8 +11,9 @@ public class GameState {
     public Faction loyalistes= new Faction("loyalistes", new Random().nextInt(20), 50);
     public int difficulty = 1;
     public int score = 0;
-    public int industrialPart = 0;
-    public int agriculturePart = 0;
+    public int industrialPart = 100;
+    public int agriculturePart = 100;
+    public int nourriture = 0;
     public int money = 200;
 
 

@@ -27,6 +27,7 @@ public class endOfTheYear {
                     break;
                 case 2:
                     //appeler Food Market
+                    foodMarket(currentState);
                     break;
                 case 3:
                     //appeler Year-end review
@@ -118,7 +119,35 @@ public class endOfTheYear {
 
 
     public GameState foodMarket(GameState currentState){
-
+        int i = 0;
+        int j = 0;
+        boolean check = false;
+        System.out.println("\nYour currency is: " +currentState.money);
+        System.out.println("You have "+currentState.nourriture+" food unit.");
+        System.out.println("1 for buy\n2 for to leave");
+        //choisi si il veut acheter ou pas
+        Scanner scan = new Scanner(System.in);
+        j = scan.nextInt();
+        switch (j){
+            case 1:
+                while(!check){
+                    //choisi le nombre d'unité qu'il veut acheter
+                    System.out.println("How many units of food do you want to buy?");
+                    i = scan.nextInt();
+                    if(i*8 > currentState.money){
+                        System.out.println("You do not have enough money");
+                    }else{
+                        currentState.money = currentState.money-(i*8);
+                        currentState.nourriture = currentState.nourriture+i;
+                        System.out.println("Your purchase has been made,you have more than "+currentState.money+" of currency, see you soon !\n");
+                        check = true;
+                    }
+                }
+                break;
+                case 2:
+                    System.out.println("See you later\n");
+                    break;
+        }
 
         return currentState;
     }
