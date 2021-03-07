@@ -120,6 +120,8 @@ public class endOfTheYear {
         int i = 0;
         int j = 0;
         boolean check = false;
+        System.out.println("You can exchange money for food units.");
+        System.out.println("This allows you to feed the population and avoid losing supporters");
         System.out.println("\nActually, you have " + currentState.money + " dollars");
         System.out.println("You have "+currentState.nourriture+" food unit.");
         System.out.println("Here's the overall number of supporters "+ currentState.nbrPartGlobal);
