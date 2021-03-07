@@ -43,16 +43,15 @@ public class Proposition {
         this.loyalistes = loyalistes;
     }
 
-    public GameState apply(GameState currentGameState,Proposition proposition){
-        currentGameState.capitalistes += proposition.capitalistes;
-        currentGameState.communistes += proposition.communistes;
-        currentGameState.liberaux += proposition.liberaux;
-        currentGameState.loyalistes += proposition.loyalistes;
-        currentGameState.nationalistes += proposition.nationalistes;
-        currentGameState.militaristes += proposition.militaristes;
-        currentGameState.religieux += proposition.religieux;
-        currentGameState.ecologistes += proposition.ecologistes;
-        return currentGameState;
+    public void apply(GameState currentGameState){
+        currentGameState.capitalistes.addPopularity(this.capitalistes);
+        currentGameState.communistes.addPopularity(this.communistes);
+        currentGameState.liberaux.addPopularity(this.liberaux);
+        currentGameState.loyalistes.addPopularity(this.loyalistes);
+        currentGameState.nationalistes.addPopularity(this.nationalistes);
+        currentGameState.militaristes.addPopularity(this.militaristes);
+        currentGameState.religieux.addPopularity(this.religieux);
+        currentGameState.ecologistes.addPopularity(this.ecologistes);
     }
 
     @Override

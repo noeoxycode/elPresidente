@@ -31,9 +31,9 @@ public class EndGame {
 
     }
 
-    public Boolean CheckEndGame (float moyenne, int diiificulty)
+    public Boolean CheckEndGame (float moyenne, int difficulty)
     {
-        if ((moyenne <=10 && diiificulty == 1)||(moyenne <= 20 && diiificulty == 2)||(moyenne <= 30 && diiificulty == 3))
+        if ((moyenne <=10 && difficulty == 1)||(moyenne <= 20 && difficulty == 2)||(moyenne <= 30 && difficulty == 3))
             return true;
         else
             return false;
